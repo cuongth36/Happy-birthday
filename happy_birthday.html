@@ -593,6 +593,7 @@
   
 
     <script>
+        var isMobile = window.matchMedia("(max-width: 700px)")
         var w = c.width = window.innerWidth,
             h = c.height = window.innerHeight,
             ctx = c.getContext('2d'),
@@ -602,8 +603,8 @@
 
             opts = {
                 strings: ['HAPPY', 'BIRTHDAY', 'THANH THỦY'],
-                charSize: 120,
-                charSpacing: 100,
+                charSize: isMobile.matches ? 70 : 120,
+                charSpacing: isMobile.matches ? 40 : 100,
                 lineHeight: 150,
 
                 cx: w / 2,
@@ -650,16 +651,26 @@
 
             letters = [];
 
-        ctx.font = opts.charSize + 'px Verdana';
+        if(isMobile.matches) {
+            ctx.font = (opts.charSize / 3) + 'px Verdana';
+        } else {
+             ctx.font = opts.charSize + 'px Verdana';
+        }
+
 
         function Letter(char, x, y) {
             this.char = char;
             this.x = x;
             this.y = y;
 
-            this.dx = -ctx.measureText(char).width / 2;
-            this.dy = +opts.charSize / 2;
+            if(isMobile.matches) {
+                this.dx = -ctx.measureText(char).width + 150;
+            } else {
+                this.dx = -ctx.measureText(char).width / 2;
+            }
 
+            this.dy = +opts.charSize / 2;
+            
             this.fireworkDy = this.y - hh;
 
             var hue = x / calc.totalWidth * 360;
@@ -986,7 +997,11 @@
         setTimeout(() => {
             anim();
 
-            ctx.font = opts.charSize + 'px Verdana';
+             if(isMobile.matches) { 
+                 ctx.font = (opts.charSize / 3) + 'px Verdana';
+             } else {
+                 ctx.font = opts.charSize + 'px Verdana';
+             }
         }, 2000);
 
         // window.addEventListener('resize', function () {
