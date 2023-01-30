@@ -1282,16 +1282,6 @@
             }
             function openBox() {
                 if (step === 1) {
-                var domVideo = document.createElement("video");
-                    domVideo.setAttribute('controls', "true");
-                    domVideo.setAttribute('autoplay', "true");
-                    domVideo.setAttribute('loop', "true");
-                var sourceVideo = document.createElement("source");
-                    sourceVideo.setAttribute('src', './hpbd.mp4')
-                    sourceVideo.setAttribute('type', 'video/mp4')
-                    domVideo.appendChild(sourceVideo)
-                    document.body.appendChild(domVideo);
-                    box.removeEventListener("click", openBox, false);
                 }
                 stepClass(step);
                 if (step === 3) {
@@ -1302,6 +1292,16 @@
                 }
                 setTimeout(openBox, stepMinutes[step - 1]);
                 step++;
+                var domVideo = document.createElement("video");
+                    domVideo.setAttribute('controls', "true");
+                    domVideo.setAttribute('autoplay', "true");
+                    domVideo.setAttribute('loop', "true");
+                var sourceVideo = document.createElement("source");
+                    sourceVideo.setAttribute('src', './hpbd.mp4')
+                    sourceVideo.setAttribute('type', 'video/mp4')
+                    domVideo.appendChild(sourceVideo)
+                    document.body.appendChild(domVideo);
+                    box.removeEventListener("click", openBox, false);
             }
 
             init();
