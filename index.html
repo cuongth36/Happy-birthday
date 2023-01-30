@@ -605,9 +605,9 @@
             hh = h / 2,
 
             opts = {
-                strings: ['HAPPY', 'BIRTHDAY', 'THANH THỦY'],
-                charSize: isMobile.matches ? 70 : 120,
-                charSpacing: isMobile.matches ? 40 : 100,
+                strings: ['HAPPY', 'BIRTHDAY', 'HÀ THỊ THANH THỦY'],
+                charSize: isMobile.matches ? 70 : 90,
+                charSpacing: isMobile.matches ? 40 : 70,
                 lineHeight: isMobile.matches ? 70 : 150,
 
                 cx: w / 2,
@@ -657,7 +657,7 @@
         if(isMobile.matches) {
             ctx.font = (opts.charSize / 3) + 'px Verdana';
         } else {
-             ctx.font = opts.charSize + 'px Verdana';
+             ctx.font = (opts.charSize /2 ) + 'px Verdana';
         }
 
 
@@ -669,7 +669,7 @@
             if(isMobile.matches) {
                 this.dx = -ctx.measureText(char).width + 150;
             } else {
-                this.dx = -ctx.measureText(char).width / 2;
+                this.dx = -ctx.measureText(char).width / 2 + 80;
             }
 
             this.dy = +opts.charSize / 2 - 100;
@@ -1003,7 +1003,7 @@
              if(isMobile.matches) { 
                  ctx.font = (opts.charSize / 3) + 'px Verdana';
              } else {
-                 ctx.font = opts.charSize + 'px Verdana';
+                 ctx.font = (opts.charSize /2 ) + 'px Verdana';
              }
         }, 2000);
 
