@@ -587,9 +587,9 @@
             <div class="box"></div>
         </div>
     </div>
-    <video width="320" height="240" controls autoplay style="display: none">
+    <!-- <video id="video-bd" width="320" height="240" controls autoplay style="display: none;">
         <source src="./hpbd.mp4" type="video/mp4">
-      </video>
+      </video> -->
     <canvas id="c"></canvas>
     <div id="balloon-container">
     </div>
@@ -1285,21 +1285,21 @@
             }
             function openBox() {
                 if (step === 1) {
-                // var domVideo = document.createElement("video");
-                //     domVideo.setAttribute('controls', "true");
-                //     domVideo.setAttribute('autoplay', "true");
-                //     domVideo.setAttribute('loop', "true");
-                // var sourceVideo = document.createElement("source");
-                //     sourceVideo.setAttribute('src', './hpbd.mp4')
-                //     sourceVideo.setAttribute('type', 'video/mp4')
-                //     domVideo.appendChild(sourceVideo)
-                //     document.body.appendChild(domVideo);
-                //     box.removeEventListener("click", openBox, false);
+                    box.removeEventListener("click", openBox, false);
                 }
                 stepClass(step);
                 if (step === 3) {
                 }
                 if (step === 4) {
+                     var domVideo = document.createElement("video");
+                    domVideo.setAttribute('controls', "true");
+                    domVideo.setAttribute('autoplay', "true");
+                    domVideo.setAttribute('loop', "true");
+                var sourceVideo = document.createElement("source");
+                    sourceVideo.setAttribute('src', './hpbd.mp4')
+                    sourceVideo.setAttribute('type', 'video/mp4')
+                    domVideo.appendChild(sourceVideo)
+                    document.body.appendChild(domVideo);
                     reveal();
                     return;
                 }
