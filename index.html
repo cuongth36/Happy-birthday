@@ -1282,16 +1282,6 @@
             }
             function openBox() {
                 if (step === 1) {
-                }
-                stepClass(step);
-                if (step === 3) {
-                }
-                if (step === 4) {
-                    reveal();
-                    return;
-                }
-                setTimeout(openBox, stepMinutes[step - 1]);
-                step++;
                 var domVideo = document.createElement("video");
                     domVideo.setAttribute('controls', "true");
                     domVideo.setAttribute('autoplay', "true");
@@ -1302,6 +1292,16 @@
                     domVideo.appendChild(sourceVideo)
                     document.body.appendChild(domVideo);
                     box.removeEventListener("click", openBox, false);
+                }
+                stepClass(step);
+                if (step === 3) {
+                }
+                if (step === 4) {
+                    reveal();
+                    return;
+                }
+                setTimeout(openBox, stepMinutes[step - 1]);
+                step++;
             }
 
             init();
